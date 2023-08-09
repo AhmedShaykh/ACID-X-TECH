@@ -1,1 +1,1 @@
-# Wordpress-And-Ghost-Headless-CMS!
+# Wordpress And Ghost Headless CMS!
