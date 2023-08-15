@@ -1,9 +1,11 @@
 import Provider from "@/Components/Provider";
+import Navbar from "@/Components/Navbar";
+// import Footer from "@/Components/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ACID X TECH",
+  title: "ACID X TECH 🚀",
   description: "ACID X TECH",
 };
 
@@ -18,7 +20,9 @@ export default function RootLayout({
       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
       <body className="dark:bg-gray-900">
         <Provider>
+          <Navbar />
           {children}
+          {/* <Footer /> */}
         </Provider>
       </body>
     </html>
