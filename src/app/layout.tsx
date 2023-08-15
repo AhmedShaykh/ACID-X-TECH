@@ -1,6 +1,6 @@
 import Provider from "@/Components/Provider";
 import Navbar from "@/Components/Navbar";
-// import Footer from "@/Components/Footer";
+import Footer from "@/Components/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -22,7 +22,7 @@ export default function RootLayout({
         <Provider>
           <Navbar />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </Provider>
       </body>
     </html>

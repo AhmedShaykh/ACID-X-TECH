@@ -6,15 +6,13 @@ import {
     AiOutlineLinkedin,
     AiOutlineTwitter,
 } from "react-icons/ai";
-import Logo from "./Logo";
 
 const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-gray-900 px-14 border-t border-stone-300 dark:border-stone-700">
+        <footer className="bg-white dark:bg-gray-900 px-14 border-t border-stone-300 dark:border-stone-700 absolute bottom-0">
             <div className="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col max-w-7xl">
-
                 <p className="sm:inline text-sm dark:text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-600 sm:py-2 sm:mt-0 mt-4 font-semibold">
-                    © 2023 <span className="font-orbitron tracking-widest">Ahmëd Shäikh</span>
+                    © 2023 <span className="font-orbitron tracking-widest">Ahmëd Shäykh</span>
                 </p>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-4">
                     <Link className="dark:text-white cursor-pointer hover:text-slate-500 dark:hover:text-blue-300" href="https://www.instagram.com/AHMXMusic/" target="_blank">
