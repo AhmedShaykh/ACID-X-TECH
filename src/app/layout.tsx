@@ -1,8 +1,6 @@
-import { Inter } from "next/font/google";
+import Provider from "@/Components/Provider";
 import type { Metadata } from "next";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ACID X TECH",
@@ -16,8 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+      <body className="dark:bg-gray-900">
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   )
