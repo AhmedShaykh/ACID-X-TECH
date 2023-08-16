@@ -17,12 +17,8 @@ const NAV_ITEMS: Array<NavItem> = [
         page: "home",
     },
     {
-        label: "About",
-        page: "about",
-    },
-    {
-        label: "Project",
-        page: "project",
+        label: "Services",
+        page: "Services",
     },
     {
         label: "Contact",
@@ -61,7 +57,7 @@ const Navbar = () => {
                         className={`flex-1 justify-self-center pb-3 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
                             }`}
                     >
-                        <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-x-6 md:space-y-0">
+                        <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-x-10 md:space-y-0">
                             {NAV_ITEMS.map((item, idx) => {
                                 return (
                                     <Link
