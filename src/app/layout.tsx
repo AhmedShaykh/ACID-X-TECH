@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-      <body className="dark:bg-gray-900">
+      <body>
         <Provider>
           <Navbar />
           {children}

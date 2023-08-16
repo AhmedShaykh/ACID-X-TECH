@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-gray-900 px-14 border-t border-stone-300 dark:border-stone-700">
+        <footer className="bg-[#e5e7eb] dark:bg-[#04040e] px-14 border-t border-stone-300 dark:border-stone-700">
             <div className="px-5 py-8 mx-auto flex items-center sm:flex-row sm:gap-y-0 gap-y-2 flex-col max-w-7xl">
                 <div className="flex items-center space-x-2">
                     <h2 className="inline md:hidden text-lg font-orbitron font-bold cursor-pointer tracking-wider">

@@ -14,15 +14,15 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
     {
         label: "Home",
-        page: "home",
+        page: "home"
     },
     {
         label: "Services",
-        page: "Services",
+        page: "services"
     },
     {
         label: "Contact",
-        page: "contact",
+        page: "contact"
     }
 ];
 
@@ -35,7 +35,7 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <header className="w-full mx-auto px-8 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-gray-900 dark:border-b dark:border-stone-700">
+        <header className="w-full mx-auto px-8 sm:px-20 fixed top-0 z-50 shadow bg-[#e5e7eb] dark:bg-[#04040e] dark:border-b dark:border-stone-700">
             <div className="justify-between md:items-center md:flex">
                 <div>
                     <div className="flex items-center justify-between py-6 md:py-8 md:block">
