@@ -35,7 +35,7 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <header className="w-full mx-auto px-8 sm:px-20 fixed top-0 z-50 shadow bg-[#e5e7eb] dark:bg-[#04040e] dark:border-b dark:border-stone-700">
+        <header className="w-full mx-auto px-8 sm:px-20 fixed top-0 z-50 shadow bg-[#e5e7eb] dark:bg-[#04040e] border-b border-neutral-300 dark:border-stone-700">
             <div className="justify-between md:items-center md:flex">
                 <div>
                     <div className="flex items-center justify-between py-6 md:py-8 md:block">
@@ -57,14 +57,14 @@ const Navbar = () => {
                         className={`flex-1 justify-self-center pb-3 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
                             }`}
                     >
-                        <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-x-10 md:space-y-0">
+                        <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-x-12 md:space-y-0 font-semibold dark:font-medium">
                             {NAV_ITEMS.map((item, idx) => {
                                 return (
                                     <Link
                                         key={idx}
                                         to={item.page}
                                         className={
-                                            "block lg:inline-block text-neutral-900 hover:text-slate-500 dark:text-white dark:hover:text-blue-300 cursor-pointer font-semibold"
+                                            "block lg:inline-block text-neutral-900 hover:text-cyan-500 dark:text-white dark:hover:text-teal-500 cursor-pointer"
                                         }
                                         spy={true}
                                         smooth={true}
