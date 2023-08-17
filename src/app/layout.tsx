@@ -1,6 +1,7 @@
-import Provider from "@/Components/Provider";
+import Provider from "@/Providers/Provider";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import ToasterProvider from "@/Providers/ToasterProvider";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
       <body>
         <Provider>
+          <ToasterProvider />
           <Navbar />
           {children}
           <Footer />
