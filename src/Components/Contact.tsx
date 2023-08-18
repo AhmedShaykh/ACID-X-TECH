@@ -58,7 +58,7 @@ const Contact = () => {
                                 <div>
                                     <label className="leading-7 text-md font-semibold dark:font-medium font-orbitron dark:text-white">Name</label>
                                     <input
-                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none dark:text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none dark:text-white py-1 px-3 leading-8 transition-colors dark:transition-colors duration-200 dark:duration-300 ease-in-out dark:ease-in-out"
                                         type="text"
                                         id="name"
                                         name="name"
@@ -72,7 +72,7 @@ const Contact = () => {
                                 <div className="relative">
                                     <label className="leading-7 text-md font-semibold dark:font-medium font-orbitron dark:text-white">Email</label>
                                     <input
-                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none dark:text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none dark:text-white py-1 px-3 leading-8 transition-colors dark:transition-colors duration-200 dark:duration-300 ease-in-out dark:ease-in-out"
                                         type="email"
                                         id="email"
                                         name="email"
@@ -86,7 +86,7 @@ const Contact = () => {
                                 <div className="relative">
                                     <label className="leading-7 text-md font-semibold dark:font-medium font-orbitron dark:text-white">Message</label>
                                     <textarea
-                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none dark:text-white py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                                        className="w-full bg-slate-400 dark:bg-gray-600 bg-opacity-40 rounded my-1 border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none dark:text-white py-1 px-3 resize-none leading-6 transition-colors dark:transition-colors duration-200 dark:duration-300 ease-in-out dark:ease-in-out"
                                         id="message"
                                         name="message"
                                         value={inpval.message}

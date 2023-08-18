@@ -1,145 +1,68 @@
 import React from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-const Services = () => {
+async function getServices() {
+
+    const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=services`, { cache: 'no-cache' });
+
+    if (!res.ok) {
+        throw new Error('Failed to Fetch Data');
+    }
+
+    return res.json();
+
+};
+
+const Services = async () => {
+
+    const services = await getServices();
+
     return (
         <section id="services" className="bg-[#e5e7eb] dark:bg-[#04040e]">
-            <div className="px-8 py-24 mx-16">
-                <div className="flex flex-wrap -m-4">
-                    <div className="p-4 lg:w-1/3">
-                        <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-4 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-                                CATEGORY
-                            </h2>
-                            <h1 className="title-font sm:text-2xl text-xl font-medium dark:text-white mb-3">
-                                Raclette Blueberry Nextious Level
-                            </h1>
-                            <p className="leading-relaxed mb-3">
-                                Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
-                                microdosing tousled waistcoat.
-                            </p>
-                            <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                                <span className="text-gray-500 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-700 border-opacity-50">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                        <circle cx={12} cy={12} r={3} />
-                                    </svg>
-                                    1.2K
-                                </span>
-                                <span className="text-gray-500 inline-flex items-center leading-none text-sm">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-                                    </svg>
-                                    6
-                                </span>
+            <div className="px-8 py-8 lg:py-12 mx-4 xs:mx-8 sm:mx-16">
+                <h1 className="text-center sm:text-4xl text-3xl font-semibold font-orbitron mb-12 dark:text-white">
+                    Services
+                </h1>
+
+                <div className="flex flex-wrap gap-3 lg:gap-0 -m-3">
+
+                    {services.items.map((item: any) => {
+                        return (
+                            <div className="px-2 py-4 lg:w-1/3">
+                                <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-2 pt-12 pb-20 rounded-lg overflow-hidden text-center relative">
+                                    <h2 className="tracking-widest font-orbitron text-sm title-font font-semibold dark:text-slate-400 text-slate-900 mb-6">
+                                        CATEGORY
+                                    </h2>
+
+                                    <h1 className="sm:text-2xl text-xl font-orbitron font-medium dark:text-white mb-5">
+                                        {item.fields.title}
+                                    </h1>
+
+                                    <p className="leading-relaxed mb-3">
+                                        {documentToReactComponents(item.fields.description)}
+                                    </p>
+
+                                    <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+                                        <span className="dark:text-slate-400 text-slate-900 inline-flex items-center leading-none text-sm pr-3 py-1">
+                                            <svg
+                                                className="w-4 h-4 mr-1"
+                                                stroke="currentColor"
+                                                strokeWidth={2}
+                                                fill="none"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                <circle cx={12} cy={12} r={3} />
+                                            </svg>
+                                            1.2 K
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="p-4 lg:w-1/3">
-                        <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-                                CATEGORY
-                            </h2>
-                            <h1 className="title-font sm:text-2xl text-xl font-medium dark:text-white mb-3">
-                                Ennui Snackwave Thundercats
-                            </h1>
-                            <p className="leading-relaxed mb-3">
-                                Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
-                                microdosing tousled waistcoat.
-                            </p>
-                            <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                                <span className="text-gray-500 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-700 border-opacity-50">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                        <circle cx={12} cy={12} r={3} />
-                                    </svg>
-                                    1.2K
-                                </span>
-                                <span className="text-gray-500 inline-flex items-center leading-none text-sm">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-                                    </svg>
-                                    6
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="p-4 lg:w-1/3">
-                        <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-                                CATEGORY
-                            </h2>
-                            <h1 className="title-font sm:text-2xl text-xl font-medium dark:text-white mb-3">
-                                Selvage Poke Waistcoat Godard
-                            </h1>
-                            <p className="leading-relaxed mb-3">
-                                Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
-                                microdosing tousled waistcoat.
-                            </p>
-                            <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                                <span className="text-gray-500 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-700 border-opacity-50">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                        <circle cx={12} cy={12} r={3} />
-                                    </svg>
-                                    1.2K
-                                </span>
-                                <span className="text-gray-500 inline-flex items-center leading-none text-sm">
-                                    <svg
-                                        className="w-4 h-4 mr-1"
-                                        stroke="currentColor"
-                                        strokeWidth={2}
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-                                    </svg>
-                                    6
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    })}
                 </div>
             </div>
         </section>
