@@ -22,12 +22,12 @@ const Home = async () => {
         <div className="mt-[5.75rem]">
             <section id="home" className="bg-[#e5e7eb] dark:bg-[#04040e] dark:text-white body-font">
 
-                {banner.items.map((item: any) => {
+                {banner.items.map((item: any, i: number) => {
 
                     const bannerImg = banner.includes.Asset.find((img: any) => img.sys.id === item.fields.heroImage.sys.id);
 
                     return (
-                        <div className="mx-auto flex pt-[3.5rem] pb-6 md:py-24 md:flex-row flex-col items-center max-w-7xl">
+                        <div key={i} className="mx-auto flex pt-[3.5rem] pb-6 md:py-24 md:flex-row flex-col items-center max-w-7xl">
                             <div className="flex justify-center items-center md:pl-20 px-2">
                                 <img
                                     className="object-cover object-center rounded-md md:mb-0 mb-4 w-[300px] md:w-[350px] h-[300px] md:h-[350px]"
