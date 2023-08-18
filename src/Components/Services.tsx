@@ -29,7 +29,7 @@ const Services = async () => {
                     {services.items.map((item: any) => {
                         return (
                             <div className="px-2 py-4 lg:w-1/3">
-                                <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-2 pt-12 pb-20 rounded-lg overflow-hidden text-center relative">
+                                <div className="h-full bg-white dark:bg-[#070717] bg-opacity-40 px-2 sm:px-3 pt-12 pb-20 rounded-lg overflow-hidden text-center relative">
                                     <h2 className="tracking-widest font-orbitron text-sm title-font font-semibold dark:text-slate-400 text-slate-900 mb-6">
                                         CATEGORY
                                     </h2>
@@ -38,7 +38,7 @@ const Services = async () => {
                                         {item.fields.title}
                                     </h1>
 
-                                    <p className="leading-relaxed mb-3">
+                                    <p className="leading-7 mb-3">
                                         {documentToReactComponents(item.fields.description)}
                                     </p>
 
