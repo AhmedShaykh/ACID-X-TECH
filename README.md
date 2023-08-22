@@ -1,1 +1,1 @@
-# ACID X TECH Project!
+# ACID X TECH!
