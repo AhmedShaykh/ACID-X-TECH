@@ -1,1 +1,1 @@
-# Full Stack Next ECommerce Sanity App!
+# Full Stack Next E-Commerce Sanity App!
