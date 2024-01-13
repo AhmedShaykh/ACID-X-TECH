@@ -1,7 +1,8 @@
 import Navbar from "@/Components/Navbar";
 import { Inter } from "next/font/google";
+import "slick-carousel/slick/slick.css";
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

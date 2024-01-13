@@ -1,7 +1,8 @@
 import { apiVersion, dataset, projectId } from "./sanity/env";
-import { schema } from "./sanity/schema";
+import StudioHeader from "@/Components/StudioHeader";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
+import { schema } from "./sanity/schema";
 import { defineConfig } from "sanity";
 
 export default defineConfig({
@@ -13,4 +14,9 @@ export default defineConfig({
     structureTool(),
     visionTool({ defaultApiVersion: apiVersion })
   ],
+  studio: {
+    components: {
+      navbar: StudioHeader
+    }
+  },
 });

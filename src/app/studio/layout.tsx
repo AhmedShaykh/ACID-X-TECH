@@ -1,3 +1,5 @@
+import "../globals.css";
+
 export const metadata = {
   title: "Full Stack Next E-Commerce Sanity App",
   description: "Full Stack Next E-Commerce Sanity App"
