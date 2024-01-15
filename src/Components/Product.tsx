@@ -17,7 +17,7 @@ const Product: FC<Props> = ({ product, bg }) => {
                     <Link href={`/product/${product?.slug?.current}`}>
                         <Image
                             src={urlFor(product?.image).url()}
-                            alt="product image"
+                            alt="Product Image"
                             width={700}
                             height={700}
                             className="w-72 h-72 object-contain"

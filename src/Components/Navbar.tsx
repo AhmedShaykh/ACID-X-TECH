@@ -63,7 +63,7 @@ const Navbar = () => {
                         className={`flex-1 justify-self-center pb-3 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"
                             }`}
                     >
-                        <div className="flex flex-col items-center justify-center space-y-8 mb-3 md:mb-0 md:flex-row md:space-x-12 md:space-y-0 font-medium">
+                        <div className="flex flex-col items-center justify-center space-y-8 mb-3 md:mb-0 md:flex-row md:space-x-8 md:space-y-0 font-medium">
                             {navBarList.map((item) => {
                                 return (
                                     <Link

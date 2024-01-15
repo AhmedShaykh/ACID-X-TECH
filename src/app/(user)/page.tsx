@@ -1,5 +1,7 @@
 import Banner from "@/Components/Banner";
+import HomeBanner from "@/Components/HomeBanner";
 import NewArrival from "@/Components/NewArrival";
+import YearProduct from "@/Components/YearProduct";
 import { client } from "@/lib/sanityClient";
 import { groq } from "next-sanity";
 
@@ -25,17 +27,18 @@ const Home = async () => {
 
     const banners = await client.fetch(bannerQuery);
 
-    const newArrivalProducts = await client.fetch(bestSellersQuery);
+    const newArrivalProducts = await client.fetch(newArrivalQuery);
 
     const bestSellersProducts = await client.fetch(newArrivalQuery);
 
     const specialOffersProducts = await client.fetch(specialOffersQuery);
 
-    console.log(newArrivalProducts)
-
     return (
         <div className="text-sm overflow-hidden min-h-screen">
             <Banner banners={banners} />
+            <NewArrival products={newArrivalProducts} />
+            <HomeBanner />
+            <YearProduct />
         </div>
     )
 };

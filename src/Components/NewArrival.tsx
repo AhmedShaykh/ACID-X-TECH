@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import { ProductProps } from "../../Type";
 import NextArrow from "./NextArrow";
