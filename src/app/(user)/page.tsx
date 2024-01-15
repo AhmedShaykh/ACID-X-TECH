@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner";
+import NewArrival from "@/Components/NewArrival";
 import { client } from "@/lib/sanityClient";
 import { groq } from "next-sanity";
 
@@ -29,6 +30,8 @@ const Home = async () => {
     const bestSellersProducts = await client.fetch(newArrivalQuery);
 
     const specialOffersProducts = await client.fetch(specialOffersQuery);
+
+    console.log(newArrivalProducts)
 
     return (
         <div className="text-sm overflow-hidden min-h-screen">

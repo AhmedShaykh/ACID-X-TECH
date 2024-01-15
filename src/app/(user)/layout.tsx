@@ -1,3 +1,4 @@
+import PageButton from "@/Components/PageButton";
 import Navbar from "@/Components/Navbar";
 import { Inter } from "next/font/google";
 import "slick-carousel/slick/slick.css";
@@ -12,14 +13,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+  children }: {
+    children: React.ReactNode
+  }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
+        <PageButton />
         {children}
       </body>
     </html>
