@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner";
+import BestSellers from "@/Components/BestSellers";
 import HomeBanner from "@/Components/HomeBanner";
 import NewArrival from "@/Components/NewArrival";
 import YearProduct from "@/Components/YearProduct";
@@ -29,7 +30,7 @@ const Home = async () => {
 
     const newArrivalProducts = await client.fetch(newArrivalQuery);
 
-    const bestSellersProducts = await client.fetch(newArrivalQuery);
+    const bestSellersProducts = await client.fetch(bestSellersQuery);
 
     const specialOffersProducts = await client.fetch(specialOffersQuery);
 
@@ -38,7 +39,9 @@ const Home = async () => {
             <Banner banners={banners} />
             <NewArrival products={newArrivalProducts} />
             <HomeBanner />
+            <BestSellers products={bestSellersProducts} title="Our Bestsellers" />
             <YearProduct />
+            <BestSellers products={specialOffersProducts} title="Special Offers" />
         </div>
     )
 };

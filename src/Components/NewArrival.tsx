@@ -52,11 +52,11 @@ const NewArrival: FC<Props> = ({ products }) => {
         <Container className="-mt-60">
             <div>
                 <Slider {...settings}>
-                    {/* {products?.map((item: ProductProps) => (
+                    {products?.map((item: ProductProps) => (
                         <div key={item?._id} className="px-2">
                             <Product product={item} />
                         </div>
-                    ))} */}
+                    ))}
                 </Slider>
             </div>
         </Container>
