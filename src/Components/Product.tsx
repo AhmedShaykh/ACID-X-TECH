@@ -1,8 +1,12 @@
 import React, { FC } from "react";
 import { ProductProps } from "../../Type";
 import { urlFor } from "@/lib/sanityClient";
+import { MdOutlineStarPurple500 } from "react-icons/md";
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { AiOutlineShopping } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 
 interface Props {
     product: ProductProps;
@@ -23,8 +27,77 @@ const Product: FC<Props> = ({ product, bg }) => {
                             className="w-72 h-72 object-contain"
                         />
                     </Link>
+
+                    <div className="abosute bottom-0 flex items-center gap-5 justify-center translate-y-[110%] group-hover:-translate-y-2 transition-transform duration-300">
+                        <Link
+                            className="bg-gray-800 text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:bg-gray-950 hover:text-white duration-200"
+                            href={"/"}
+                        >
+                            <span>
+                                <AiOutlineShopping />
+                            </span>
+                            Add To Bag
+                        </Link>
+
+                        <Link
+                            href={`/product/${product?.slug?.current}`}
+                            className="bg-gray-800 text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:bg-gray-950 hover:text-white duration-200"
+                        >
+                            <span className="pr-1">
+                                <BsArrowsFullscreen />
+                            </span>
+                            Quick View
+                        </Link>
+                    </div>
+
+                    {product?.isnew && (
+                        <div className="absolute top-2 right-2 z-40">
+                            <p className="bg-primeColor px-4 py-1 text-white flex justify-center items-center text-sm font-semibold hover:bg-black duration-300 cursor-pointer rounded-md">
+                                New
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
+
+            <div className="max-w-80 py-6 flex flex-col gap-1 px-4">
+                <div className="flex items-center justify-between">
+                    <h2 className="text-lg text-primeColor font-bold">
+                        {product?.title.substring(0, 12)}
+                    </h2>
+
+                    <div className="flex items-center gap-2">
+                        <p className="text-[#767676] text-xs line-through">
+                            ${product?.rowprice}
+                        </p>
+
+                        <p className="font-semibold">${product?.price}</p>
+                    </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <p className="text-[#767676] text-sm">
+                        A Product By {" "}
+                        <span className="font-semibold text-primeColor">
+                            {product?.brand}
+                        </span>
+                    </p>
+                    <div className="flex items-center gap-1">
+                        <MdOutlineStarPurple500 className="text-lg text-yellow-500" />
+                        <span className="font-medium text-sm">{product?.ratings}</span>
+                    </div>
+                </div>
+            </div>
+
+            <Toaster
+                position="bottom-right"
+                toastOptions={{
+                    style: {
+                        background: "#000",
+                        color: "#fff"
+                    }
+                }}
+            />
         </div>
     )
 };
