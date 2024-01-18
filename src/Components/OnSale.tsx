@@ -11,7 +11,7 @@ interface Props {
 
 const OnSale: FC<Props> = ({ products }) => {
     return (
-        <div>
+        <div className="hidden md:block">
             <h3 className="text-xl font-semibold mb-6">
                 Products On Sale:
             </h3>
