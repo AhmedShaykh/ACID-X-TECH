@@ -1,1 +1,1 @@
-# Full Stack Next E-Commerce Sanity App!
+# Next.JS Headless Projects!
