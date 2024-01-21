@@ -14,8 +14,8 @@ const ToasterProvider = () => {
                 <Toaster
                     toastOptions={{
                         style: {
-                            background: '#333',
-                            color: '#fff',
+                            background: "#333",
+                            color: "#fff",
                         }
                     }}
                 />
@@ -23,8 +23,8 @@ const ToasterProvider = () => {
                 <Toaster
                     toastOptions={{
                         style: {
-                            background: '#ebf2ed',
-                            color: '#475569',
+                            background: "#ebf2ed",
+                            color: "#475569",
                         }
                     }}
                 />

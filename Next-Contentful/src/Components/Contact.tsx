@@ -1,6 +1,6 @@
 "use client";
-import React, { ChangeEvent, useState } from 'react';
-import toast from 'react-hot-toast';
+import React, { ChangeEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 const Contact = () => {
 

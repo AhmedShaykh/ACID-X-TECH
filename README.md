@@ -1,1 +1,1 @@
-# Next.JS Headless Projects!
+# Next.JS Headless CMS Projects!

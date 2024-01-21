@@ -3,10 +3,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 async function getServices() {
 
-    const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=services`, { cache: 'no-cache' });
+    const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=services`, { cache: "no-cache" });
 
     if (!res.ok) {
-        throw new Error('Failed to Fetch Data');
+        throw new Error("Failed to Fetch Data");
     }
 
     return res.json();
