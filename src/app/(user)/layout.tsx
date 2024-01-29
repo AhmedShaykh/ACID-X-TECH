@@ -2,6 +2,7 @@ import PageButton from "@/Components/PageButton";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { Inter } from "next/font/google";
+import Layout from "@/Components/Layout";
 import type { Metadata } from "next";
 import "slick-carousel/slick/slick.css";
 import "../globals.css";
@@ -9,7 +10,8 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Full Stack Next E-Commerce Sanity App"
+  title: "Full Stack Next E-Commerce Sanity App",
+  description: "Full Stack Next E-Commerce Sanity App"
 };
 
 export default function RootLayout({
@@ -20,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <PageButton />
-        {children}
-        <Footer />
+        <Layout>
+          <Navbar />
+          <PageButton />
+          {children}
+          <Footer />
+        </Layout>
       </body>
-    </html>
+    </html >
   )
 };
