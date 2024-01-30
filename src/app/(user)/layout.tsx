@@ -3,8 +3,9 @@ import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { Inter } from "next/font/google";
 import Layout from "@/Components/Layout";
-import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 import "slick-carousel/slick/slick.css";
+import type { Metadata } from "next";
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,16 @@ export default function RootLayout({
         <Layout>
           <Navbar />
           <PageButton />
+          <Toaster
+            position="bottom-right"
+            reverseOrder={true}
+            toastOptions={{
+              style: {
+                background: "#000",
+                color: "#fff"
+              }
+            }}
+          />
           {children}
           <Footer />
         </Layout>

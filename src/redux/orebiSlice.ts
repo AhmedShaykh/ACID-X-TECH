@@ -13,13 +13,34 @@ export const orebiSlice = createSlice({
     name: "orebi",
     initialState,
     reducers: {
-        addToCart: (state, action) => { },
-        increaseQuantity: (state, action) => { },
-        decreaseQuantity: (state, action) => { },
-        deleteProduct: (state, action) => { },
+        addToCart: (state, action) => {
+            const existingProduct = state?.productData.find((item: ProductProps) => {
+                item?._id === action?.payload?._id;
+            });
+            if (existingProduct) existingProduct.quantity += action.payload.quantity;
+            state.productData.push(action.payload);
+        },
+        increaseQuantity: (state, action) => {
+            const existingProduct = state.productData.find(
+                (item: ProductProps) => item._id === action.payload._id
+            );
+            existingProduct && existingProduct.quantity++;
+        },
+        decreaseQuantity: (state, action) => {
+            const existingProduct = state.productData.find(
+                (item: ProductProps) => item._id === action.payload._id
+            );
+            if (existingProduct?.quantity === 1) existingProduct.quantity === 1;
+            existingProduct && existingProduct.quantity--;
+        },
+        deleteProduct: (state, action) => {
+            state.productData = state.productData.filter(
+                (item) => item._id !== action.payload
+            );
+        },
         resetCart: (state) => {
             state.productData = [];
-        },
+        }
     }
 });
 
@@ -28,7 +49,7 @@ export const {
     increaseQuantity,
     decreaseQuantity,
     deleteProduct,
-    resetCart,
+    resetCart
 } = orebiSlice.actions;
 
 export default orebiSlice.reducer;
