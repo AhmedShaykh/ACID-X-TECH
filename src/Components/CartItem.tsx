@@ -30,14 +30,13 @@ const CartItem: FC<Props> = ({ item }) => {
 
         if (item.quantity <= 1) {
 
-            toast("Product Less Than To 1", { icon: "🤷🏻‍♂️" });
+            toast("Product Minimum Value Equal To 1", { icon: "🤷🏻‍♂️" });
 
         } else {
 
             dispatch(decreaseQuantity({ _id: id }));
 
-            toast.success("Product Reduced Successfully");
-
+            toast.success("Product Reduce Successfully");
         }
     };
 
@@ -64,7 +63,7 @@ const CartItem: FC<Props> = ({ item }) => {
                     />
                 </Link>
 
-                <h1 className="font-semibold">{item?.title.substring(0, 20)}</h1>
+                <h1 className="font-semibold px-2">{item?.title.substring(0, 20)}</h1>
             </div>
 
             <div className="col-span-5 md:col-span-3 flex items-center justify-between py-4 md:py-0 px-4 lg:px-0">
