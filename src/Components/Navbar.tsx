@@ -5,6 +5,7 @@ import { navBarList } from "@/static";
 import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { IoCloseOutline } from "react-icons/io5";
+import { signOut, useSession } from "next-auth/react";
 import { FaSearch } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +15,8 @@ const Navbar = () => {
     const [navbar, setNavbar] = useState<boolean>(false);
 
     const [searchQuery, setSearchQuery] = useState("");
+
+    const { data: session } = useSession();
 
     const pathname = usePathname();
 
@@ -77,6 +80,15 @@ const Navbar = () => {
                                     </Link>
                                 )
                             })}
+
+                            {session?.user && (
+                                <button
+                                    className="flex hover:font-medium h-6 justify-center items-center space-y-8 md:space-x-4 text-gray-500 hover:underline underline-offset-4 decoration-[1px] hover:text-red-600 duration-200"
+                                    onClick={() => signOut()}
+                                >
+                                    Logout
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
