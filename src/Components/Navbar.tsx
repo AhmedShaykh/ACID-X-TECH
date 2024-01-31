@@ -83,7 +83,7 @@ const Navbar = () => {
 
                             {session?.user && (
                                 <button
-                                    className="flex hover:font-medium h-6 justify-center items-center space-y-8 md:space-x-4 text-gray-500 hover:underline underline-offset-4 decoration-[1px] hover:text-red-600 duration-200"
+                                    className="flex hover:font-medium h-6 justify-center items-center space-y-8 md:space-x-4 text-gray-600 hover:underline underline-offset-4 decoration-[1px] hover:text-gray-950 duration-200"
                                     onClick={() => signOut()}
                                 >
                                     Logout

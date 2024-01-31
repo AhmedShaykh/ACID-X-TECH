@@ -1,7 +1,21 @@
+"use client";
+import { useEffect } from "react";
 import Container from "@/Components/Container";
+import { resetCart } from "@/redux/orebiSlice";
+import { redirect } from "next/navigation";
+import { useDispatch } from "react-redux";
 import Link from "next/link";
 
-const Success = () => {
+const Success = ({ searchParams }: any) => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        !searchParams?.session_id ? redirect("/") : dispatch(resetCart());
+
+    }, []);
+
     return (
         <Container className="flex items-center justify-center py-20">
             <div className="min-h-[400px] flex flex-col items-center justify-center gap-y-5">

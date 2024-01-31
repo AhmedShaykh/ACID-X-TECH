@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { StateProps } from "../../Type";
 import emptyCart from "../../public/assets/emptyCart.png";
 import { resetCart } from "@/redux/orebiSlice";
 import Container from "./Container";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
+import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import Image from "next/image";
@@ -16,9 +18,11 @@ const Cart = () => {
 
     const { productData } = useSelector((state: StateProps) => state.orebi);
 
-    const dispatch = useDispatch();
-
     const [totalAmt, setTotalAmt] = useState(0);
+
+    const { data: session } = useSession();
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
@@ -43,6 +47,37 @@ const Cart = () => {
         confirmed && dispatch(resetCart());
 
         toast.success("Cart Reset Successfully!");
+
+    };
+
+    const stripePromise = loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+    );
+
+    const createCheckout = async () => {
+
+        if (session?.user) {
+
+            const stripe = await stripePromise;
+
+            const response = await fetch("http://localhost:3000/api/checkout", {
+                method: "POST",
+                headers: { "Content-Type": "appication/json" },
+                body: JSON.stringify({
+                    items: productData,
+                    email: session?.user?.email,
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) stripe?.redirectToCheckout({ sessionId: data.id });
+
+        } else {
+
+            toast.error("Please Sign In To Make Checkout");
+
+        }
 
     };
 
@@ -102,7 +137,7 @@ const Cart = () => {
 
                                 <button
                                     className="h-10 px-8 bg-primeColor text-white hover:bg-black duration-300"
-                                // onClick={createCheckout}
+                                    onClick={createCheckout}
                                 >
                                     Proceed To Checkout
                                 </button>
