@@ -1,1 +1,1 @@
-# JAMStack Headless-CMS Projects!
+# JAMStack Headless CMS Projects!
