@@ -1,1 +1,1 @@
-# Next.JS Headless CMS Projects!
+# JAMStack Headless-CMS Projects!
