@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import Logo from "./Logo";
-import { Link } from "react-scroll/modules";;
-import { useTheme } from "next-themes";
+import { Link as Links } from "react-scroll/modules";
 import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
 interface NavItem {
     label: string
@@ -12,10 +13,6 @@ interface NavItem {
 };
 
 const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: "Home",
-        page: "home"
-    },
     {
         label: "Services",
         page: "services"
@@ -58,22 +55,33 @@ const Navbar = () => {
                             }`}
                     >
                         <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-x-12 md:space-y-0 font-semibold dark:font-medium">
+                            <Link
+                                className={
+                                    "block lg:inline-block text-neutral-900 hover:text-cyan-500 dark:text-white dark:hover:text-teal-500 cursor-pointer"
+                                }
+                                href="/blog"
+                            >
+                                Blog
+                            </Link>
+
                             {NAV_ITEMS.map((item, idx) => {
                                 return (
-                                    <Link
-                                        key={idx}
-                                        to={item.page}
-                                        className={
-                                            "block lg:inline-block text-neutral-900 hover:text-cyan-500 dark:text-white dark:hover:text-teal-500 cursor-pointer"
-                                        }
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-100}
-                                        duration={500}
-                                        onClick={() => setNavbar(!navbar)}
-                                    >
-                                        {item.label}
-                                    </Link>
+                                    <>
+                                        <Links
+                                            key={idx}
+                                            to={item.page}
+                                            className={
+                                                "block lg:inline-block text-neutral-900 hover:text-cyan-500 dark:text-white dark:hover:text-teal-500 cursor-pointer"
+                                            }
+                                            spy={true}
+                                            smooth={true}
+                                            offset={-100}
+                                            duration={500}
+                                            onClick={() => setNavbar(!navbar)}
+                                        >
+                                            {item.label}
+                                        </Links>
+                                    </>
                                 )
                             })}
                             {currentTheme === "dark" ? (

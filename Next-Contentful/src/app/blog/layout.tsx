@@ -1,4 +1,5 @@
 import Provider from "@/Providers/Provider";
+import Nav from "@/Components/Nav";
 import type { Metadata } from "next";
 import "./../globals.css";
 
@@ -14,9 +15,12 @@ export default function BlogLayout({
 }) {
     return (
         <html lang="en">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
             <body>
                 <Provider>
-                    {children}
+                    <Nav>
+                        {children}
+                    </Nav>
                 </Provider>
             </body>
         </html>

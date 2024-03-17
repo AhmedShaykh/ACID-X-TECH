@@ -2,14 +2,14 @@ import Home from "@/Components/Home";
 import Services from "@/Components/Services";
 import Contact from "@/Components/Contact";
 
-const page = () => {
+const Base = () => {
     return (
         <>
-            {/* <Home /> */}
-            {/* <Services /> */}
+            <Home />
+            <Services />
             <Contact />
         </>
     )
 };
 
-export default page;
+export default Base;

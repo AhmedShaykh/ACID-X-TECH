@@ -1,21 +1,21 @@
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-async function getServices() {
+// async function getServices() {
 
-    const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=services`, { cache: "no-cache" });
+//     const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.SPACE_ID}/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=services`, { cache: "no-cache" });
 
-    if (!res.ok) {
-        throw new Error("Failed to Fetch Data");
-    }
+//     if (!res.ok) {
+//         throw new Error("Failed to Fetch Data");
+//     }
 
-    return res.json();
+//     return res.json();
 
-};
+// };
 
 const Services = async () => {
 
-    const services = await getServices();
+    // const services = await getServices();
 
     return (
         <section id="services" className="bg-[#e5e7eb] dark:bg-[#04040e]">
@@ -24,7 +24,7 @@ const Services = async () => {
                     Services
                 </h1>
 
-                <div className="flex flex-wrap gap-3 lg:gap-0 -m-3">
+                {/* <div className="flex flex-wrap gap-3 lg:gap-0 -m-3">
 
                     {services.items.map((item: any, i: number) => {
                         return (
@@ -63,7 +63,7 @@ const Services = async () => {
                             </div>
                         )
                     })}
-                </div>
+                </div> */}
             </div>
         </section>
     )
