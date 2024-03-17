@@ -42,7 +42,10 @@ const Blog = async () => {
                                                     alt={item.fields.author.fields.name}
                                                 />
                                             </div>
-                                            <div className="font-semibold">{item.fields.author.fields.name}</div>
+
+                                            <div className="font-semibold">
+                                                {item.fields.author.fields.name}
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
