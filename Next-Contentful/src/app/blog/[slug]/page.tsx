@@ -1,4 +1,5 @@
 import { previewClient } from "@/lib/client";
+import { formatDate } from "@/lib/utils";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Slug = async ({ params }: { params: { slug: string } }) => {
@@ -11,6 +12,8 @@ const Slug = async ({ params }: { params: { slug: string } }) => {
         content_type: "post",
         "fields.slug": slug
     });
+
+    const date: any = response.items[0].fields.date;
 
     return (
         <div className="flex flex-col items-center mx-auto max-w-6xl">
@@ -50,7 +53,7 @@ const Slug = async ({ params }: { params: { slug: string } }) => {
             </p>
 
             <div className="text-lg mb-4 text-gray-400">
-                {response.items[0].fields.date}
+                {formatDate(date)}
             </div>
         </div>
     )

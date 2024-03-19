@@ -1,4 +1,5 @@
 import { client } from "@/lib/client";
+import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 
 const Blog = async () => {
@@ -9,6 +10,9 @@ const Blog = async () => {
         <div className="container">
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-10">
                 {post.items.map((item: any, i: number) => {
+
+                    const date: any = item.fields.date;
+
                     return (
                         <>
                             <li key={i} className="rounded-md overflow-hidden shadow-md">
@@ -29,7 +33,7 @@ const Blog = async () => {
                                         <h3 className="text-xl mb-1 text-white">{item.fields.title}</h3>
 
                                         <div className="text-sm mb-4 text-gray-400">
-                                            {item.fields.date}
+                                            {formatDate(date)}
                                         </div>
 
                                         <p className="text-base mb-4 text-white">{item.fields.excerpt}</p>
