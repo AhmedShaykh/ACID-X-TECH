@@ -1,12 +1,19 @@
+"use client";
 import React, { FC } from "react";
 import { ProductProps } from "../../Type";
+import { addToCart } from "@/redux/orebiSlice";
 import Price from "./Price";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 interface Props {
     product: ProductProps;
 };
 
 const ProductInfo: FC<Props> = ({ product }) => {
+
+    const dispatch = useDispatch();
+
     return (
         <div className="flex flex-col gap-5">
             <h2 className="text-4xl font-semibold">
@@ -37,13 +44,22 @@ const ProductInfo: FC<Props> = ({ product }) => {
 
             <p className="text-sm text-gray-500">Be The First To Leave A Review.</p>
 
-            <button className="w-full py-4 bg-primeColor hover:bg-black duration-300 text-white text-lg rounded-md">
+            <button
+                className="w-full py-4 bg-primeColor hover:bg-black duration-300 text-white text-lg rounded-md"
+                onClick={() => {
+                    dispatch(addToCart(product));
+                    toast.success(
+                        `${product?.title.substring(0, 12)}... Added To Cart`
+                    );
+                }}
+            >
                 Add To Cart
             </button>
 
             <p className="font-normal text-sm">
-                <span className="text-base font-medium">Categories:</span> Spring
-                Collection, Streetwear, Women Tags: Featured SKU: N/A
+                <span className="text-base font-medium">Categories:</span>
+
+                Spring Collection, Streetwear, Women Tags: Featured SKU: N/A
             </p>
         </div>
     )
